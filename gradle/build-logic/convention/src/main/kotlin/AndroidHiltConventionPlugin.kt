@@ -7,8 +7,8 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(libs.plugins.hilt.get().pluginId)
-            apply(libs.plugins.kapt.get().pluginId)
+            apply(libs.plugins.hiltAndroid.get().pluginId)
+            apply(libs.plugins.kotlinKapt.get().pluginId)
         }
 
         dependencies {

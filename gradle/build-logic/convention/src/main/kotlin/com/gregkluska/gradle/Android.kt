@@ -1,7 +1,6 @@
 package com.gregkluska.gradle
 
 import com.android.build.api.dsl.CommonExtension
-import com.gregkluska.gradle.Versions.targetSdk
 import org.gradle.api.Project
 
 internal fun Project.configureAndroidCommon(

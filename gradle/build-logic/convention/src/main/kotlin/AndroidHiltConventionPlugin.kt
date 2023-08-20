@@ -1,8 +1,6 @@
-import com.android.build.api.dsl.ApplicationExtension
 import com.gregkluska.gradle.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 
 class AndroidHiltConventionPlugin : Plugin<Project> {

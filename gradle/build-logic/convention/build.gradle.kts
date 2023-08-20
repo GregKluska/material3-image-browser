@@ -13,3 +13,33 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
+
+gradlePlugin {
+    plugins {
+        create("AndroidApplicationConventionPlugin") {
+            id = "com.gregkluska.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
+
+        create("AndroidApplicationComposeConventionPlugin") {
+            id = "com.gregkluska.android.application.compose"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+
+        create("AndroidLibraryConventionPlugin") {
+            id = "com.gregkluska.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+
+        create("AndroidLibraryComposeConventionPlugin") {
+            id = "com.gregkluska.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+
+        create("AndroidHiltConventionPlugin") {
+            id = "com.gregkluska.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+    }
+
+}

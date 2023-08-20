@@ -1,4 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.LibraryExtension
+import com.gregkluska.gradle.configureAndroidCompose
 import com.gregkluska.gradle.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,12 +10,11 @@ class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) = with(target) {
         with(pluginManager) {
-            apply(libs.plugins.androidApplication.get().pluginId)
-            apply(libs.plugins.kotlinAndroid.get().pluginId)
+            apply(libs.plugins.androidLibrary.get().pluginId)
         }
 
-        extensions.configure<ApplicationExtension> {
-
+        extensions.configure<LibraryExtension> {
+            configureAndroidCompose(this)
         }
     }
 

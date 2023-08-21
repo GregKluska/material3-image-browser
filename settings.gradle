@@ -18,3 +18,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Material3 Image Browser"
 include ':app'
+include ':feature:search'
+include ':feature:detail'

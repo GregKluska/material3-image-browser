@@ -1,4 +1,4 @@
-package com.gregkluska.imagebrowser.ui.theme
+package com.gregkluska.imagebrowser.common.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun Material3ImageBrowserTheme(
+fun ImageBrowserTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

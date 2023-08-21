@@ -1,4 +1,4 @@
-package com.gregkluska.imagebrowser.ui.theme
+package com.gregkluska.imagebrowser.common.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

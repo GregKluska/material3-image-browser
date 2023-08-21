@@ -22,6 +22,7 @@ android {
 
 dependencies {
     implementation project(":common:ui")
+    implementation project(":core")
 
     implementation libs.core.ktx
 
@@ -30,4 +31,6 @@ dependencies {
     debugImplementation libs.ui.tooling
 
     implementation libs.material3
+
+    implementation libs.coil.compose
 }

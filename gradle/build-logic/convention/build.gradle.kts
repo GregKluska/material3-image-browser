@@ -40,6 +40,11 @@ gradlePlugin {
             id = "com.gregkluska.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+
+        create("JvmLibraryConventionPlugin") {
+            id = "com.gregkluska.jvm.library"
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
     }
 
 }

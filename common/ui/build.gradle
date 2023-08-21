@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.gregkluska.imagebrowser.feature.detail'
+    namespace 'com.gregkluska.imagebrowser.common.ui'
 
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -20,8 +20,14 @@ android {
 }
 
 dependencies {
+    implementation project(":common:ui")
+
     implementation libs.core.ktx
-    testImplementation libs.junit
-    androidTestImplementation libs.androidx.test.ext.junit
-    androidTestImplementation libs.espresso.core
+
+    implementation libs.ui
+
+    implementation libs.ui.tooling.preview
+    debugImplementation libs.ui.tooling
+
+    implementation libs.material3
 }

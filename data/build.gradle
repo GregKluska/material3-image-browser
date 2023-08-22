@@ -1,0 +1,8 @@
+plugins {
+    id "com.gregkluska.jvm.library"
+}
+
+dependencies {
+    implementation libs.ktor.client.core
+    implementation libs.ktor.client.cio
+}

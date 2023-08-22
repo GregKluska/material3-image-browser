@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.gregkluska.imagebrowser.feature.search'
+    namespace 'com.gregkluska.imagebrowser.feature.browser'
 
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

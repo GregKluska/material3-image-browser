@@ -22,9 +22,11 @@ android {
 
 dependencies {
     implementation project(":common:ui")
+    implementation project(":data")
     implementation project(":core")
 
     implementation libs.core.ktx
+    implementation libs.lifecycle.viewmodel
 
     implementation libs.ui
     implementation libs.ui.tooling.preview

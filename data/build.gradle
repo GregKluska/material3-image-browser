@@ -1,8 +1,18 @@
 plugins {
     id "com.gregkluska.jvm.library"
+    alias(libs.plugins.kotlinSerialization)
 }
 
 dependencies {
+    implementation project(":core")
+
+    implementation libs.hilt.core
+
     implementation libs.ktor.client.core
-    implementation libs.ktor.client.cio
+    implementation libs.ktor.client.android
+    implementation libs.ktor.client.auth
+    implementation libs.ktor.serialization.kotlinx.json
+    implementation libs.ktor.client.content.negotiation
+
+    implementation libs.kotlin.serialization.json
 }

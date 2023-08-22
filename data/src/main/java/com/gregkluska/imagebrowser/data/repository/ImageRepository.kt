@@ -1,0 +1,18 @@
+package com.gregkluska.imagebrowser.data.repository
+
+import com.gregkluska.imagebrowser.core.model.Image
+import com.gregkluska.imagebrowser.data.model.toImage
+import com.gregkluska.imagebrowser.data.network.UnsplashService
+import javax.inject.Inject
+
+class ImageRepository
+@Inject
+constructor(
+    private val unsplashService: UnsplashService
+) {
+
+    suspend fun getImages(): List<Image> {
+        return unsplashService.getPhotos().map { it.toImage() }
+    }
+
+}

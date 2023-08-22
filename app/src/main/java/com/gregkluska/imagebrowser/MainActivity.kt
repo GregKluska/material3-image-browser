@@ -10,6 +10,7 @@ import com.gregkluska.imagebrowser.feature.search.SearchScreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             val previewList = listOf(
                 Image(

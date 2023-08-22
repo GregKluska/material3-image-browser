@@ -4,6 +4,11 @@ plugins {
     id "com.gregkluska.hilt"
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+def unsplash_api = properties.getProperty('imagebrowser.unsplashapi')
+
 android {
     namespace 'com.gregkluska.imagebrowser'
 
@@ -16,6 +21,11 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        buildConfigField 'String', 'UNSPLASH_CLIENT_ID', "\"${unsplash_api}\""
+    }
+    buildFeatures {
+        buildConfig true
     }
 
     buildTypes {
@@ -45,6 +55,8 @@ dependencies {
     implementation libs.ui.graphics
     implementation libs.ui.tooling.preview
     implementation libs.material3
+    implementation libs.navigation.compose
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.test.ext.junit
     androidTestImplementation libs.espresso.core

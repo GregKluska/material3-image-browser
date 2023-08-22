@@ -28,9 +28,14 @@ dependencies {
     implementation libs.core.ktx
     implementation libs.lifecycle.viewmodel
 
+    implementation libs.hilt.navigation.compose
+
     implementation libs.ui
     implementation libs.ui.tooling.preview
     debugImplementation libs.ui.tooling
+
+    implementation libs.navigation.compose
+
     implementation libs.accompanist.permissions
 
     implementation libs.material3

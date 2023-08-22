@@ -1,5 +1,6 @@
 package com.gregkluska.imagebrowser.di
 
+import com.gregkluska.imagebrowser.BuildConfig
 import com.gregkluska.imagebrowser.data.network.UnsplashService
 import dagger.Module
 import dagger.Provides
@@ -12,7 +13,7 @@ object DataModule {
 
     @Provides
     fun provideUnsplashService(): UnsplashService {
-        return UnsplashService.build("")
+        return UnsplashService.build(BuildConfig.UNSPLASH_CLIENT_ID)
     }
 
 }

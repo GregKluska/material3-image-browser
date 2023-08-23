@@ -1,6 +1,7 @@
 plugins {
     id "com.gregkluska.android.library"
     id "com.gregkluska.android.library.compose"
+    id "com.gregkluska.hilt"
 }
 
 android {
@@ -20,8 +21,20 @@ android {
 }
 
 dependencies {
+    implementation project(":common:ui")
+    implementation project(":data")
+    implementation project(":core")
+
     implementation libs.core.ktx
-    testImplementation libs.junit
-    androidTestImplementation libs.androidx.test.ext.junit
-    androidTestImplementation libs.espresso.core
+    implementation libs.lifecycle.viewmodel
+
+    implementation libs.hilt.navigation.compose
+
+    implementation libs.ui
+    implementation libs.ui.tooling.preview
+    debugImplementation libs.ui.tooling
+
+    implementation libs.navigation.compose
+
+    implementation libs.material3
 }

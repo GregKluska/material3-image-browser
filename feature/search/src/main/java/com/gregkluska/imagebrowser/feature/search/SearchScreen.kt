@@ -4,17 +4,20 @@ package com.gregkluska.imagebrowser.feature.search
 
 import android.Manifest
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import coil.compose.AsyncImage
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
+import com.gregkluska.imagebrowser.common.ui.ImageContainer
 import com.gregkluska.imagebrowser.common.ui.theme.ImageBrowserTheme
 import com.gregkluska.imagebrowser.core.model.Image
 
@@ -27,16 +30,20 @@ fun SearchScreen(
 
     if (internetPermissionState.status.isGranted) {
         LazyColumn(
+            modifier = Modifier.padding(horizontal = 16.dp),
             state = rememberLazyListState(),
             content = {
                 this.items(
                     count = images.size,
                     itemContent = { idx ->
                         val image = images[idx]
-                        AsyncImage(
-                            model = image.url,
-                            contentDescription = image.description
-                        )
+                        ImageContainer(
+                            modifier = Modifier.padding(vertical = 8.dp),
+                            url = image.url,
+                            alt = image.description
+                        ) {
+                            Text("Hello World")
+                        }
                     }
                 )
             }

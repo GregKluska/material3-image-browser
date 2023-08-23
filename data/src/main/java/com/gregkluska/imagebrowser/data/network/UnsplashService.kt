@@ -18,9 +18,12 @@ interface UnsplashService {
 
     suspend fun getPhoto(id: String): ImageDto
 
-    suspend fun getUsersPhoto(userId: String): List<ImageDto>
+    suspend fun getUsersPhoto(username: String): List<ImageDto>
 
     companion object Factory {
+
+        const val BASE_URL = "https://api.unsplash.com"
+
         fun build(
             clientId: String
         ): UnsplashService {

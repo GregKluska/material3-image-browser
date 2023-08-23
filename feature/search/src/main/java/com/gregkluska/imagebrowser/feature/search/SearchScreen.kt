@@ -71,21 +71,21 @@ private fun SearchScreenPreview() {
             id = "1",
             url = "https://images.unsplash.com/photo-1692318431228-8928bacd2d19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
             tags = listOf(),
-            author = User("a", "User"),
+            author = User("a", "User","User"),
             description = "Lorem Ipsum"
         ),
         Image(
             id = "2",
             url = "https://images.unsplash.com/photo-1692610492938-37a4eed63ac0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
             tags = listOf(),
-            author = User("a", "User"),
+            author = User("a", "User","User"),
             description = "Lorem Ipsum"
         ),
         Image(
             id = "3",
             url = "https://images.unsplash.com/photo-1692206130097-f66afa1cbc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
             tags = listOf(),
-            author = User("a", "User"),
+            author = User("a", "User","User"),
             description = "Lorem Ipsum"
         ),
     )

@@ -35,7 +35,8 @@ fun DetailScreen(
             description = image?.description,
             author = image?.author?.name ?: "",
             date = "",
-            tags = image?.tags?:listOf()
+            tags = image?.tags?:listOf(),
+            onUserClick = { onEvent(DetailEvent.OnUserClick) }
         )
     }
 

@@ -38,7 +38,8 @@ fun ImageContainer(
     date: String,
     author: String,
     description: String?,
-    tags: List<String>
+    tags: List<String>,
+    onUserClick: () -> Unit,
 ) {
     val content = AnnotatedString.Builder().apply {
         withStyle(
@@ -78,7 +79,7 @@ fun ImageContainer(
             text = content.toAnnotatedString(),
             onClick = { offset ->
                 if (offset < author.length) {
-                    println("BOOM")
+                    onUserClick()
                 }
             }
         )

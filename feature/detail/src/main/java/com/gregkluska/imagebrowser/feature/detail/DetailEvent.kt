@@ -6,4 +6,5 @@ sealed interface DetailEvent {
         val imageId: String
     ): DetailEvent
 
+    object OnUserClick: DetailEvent
 }

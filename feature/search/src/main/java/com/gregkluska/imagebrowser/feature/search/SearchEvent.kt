@@ -6,7 +6,9 @@ sealed interface SearchEvent {
         val id: String
     ) : SearchEvent
 
-    data class LoadImages(
-        val query: String
+    object LoadImages : SearchEvent
+
+    data class LoadUsersImages(
+        val username: String
     ) : SearchEvent
 }

@@ -7,11 +7,13 @@ import kotlinx.serialization.Serializable
 data class UserDto(
     val id: String,
     val username: String,
+    val name: String
 )
 
 fun UserDto.toUser(): User {
     return User(
         id = this.id,
-        name = this.username
+        username = this.username,
+        name = this.name,
     )
 }

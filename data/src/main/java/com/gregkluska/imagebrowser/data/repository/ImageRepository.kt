@@ -15,6 +15,10 @@ constructor(
         return unsplashService.getPhoto().map { it.toImage() }
     }
 
+    suspend fun getUsersImages(username: String): List<Image> {
+        return unsplashService.getUsersPhoto(username).map { it.toImage() }
+    }
+
     suspend fun getImage(imageId: String): Image {
         return unsplashService.getPhoto(imageId).toImage()
     }

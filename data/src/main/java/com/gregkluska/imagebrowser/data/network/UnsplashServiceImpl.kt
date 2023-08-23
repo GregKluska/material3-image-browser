@@ -1,6 +1,7 @@
 package com.gregkluska.imagebrowser.data.network
 
 import com.gregkluska.imagebrowser.data.model.ImageDto
+import com.gregkluska.imagebrowser.data.network.UnsplashService.Factory.BASE_URL
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -13,17 +14,14 @@ class UnsplashServiceImpl(
 ) : UnsplashService {
 
     override suspend fun getPhoto(): List<ImageDto> {
-        return httpClient.get(EndPoints.PHOTO_LIST).body()
+        return httpClient.get("$BASE_URL/photos").body()
     }
 
     override suspend fun getPhoto(id: String): ImageDto {
-        val res = httpClient.get("${EndPoints.PHOTO}/$id")
-        println(id)
-        println(res.bodyAsText())
-        return res.body()
+        return httpClient.get("$BASE_URL/photos/$id").body()
     }
 
-    override suspend fun getUsersPhoto(userId: String): List<ImageDto> {
-        TODO("Not yet implemented")
+    override suspend fun getUsersPhoto(username: String): List<ImageDto> {
+        return httpClient.get("$BASE_URL/users/$username/photos").body()
     }
 }

@@ -21,19 +21,20 @@ import com.google.accompanist.permissions.rememberPermissionState
 import com.gregkluska.imagebrowser.common.ui.ImageContainer
 import com.gregkluska.imagebrowser.common.ui.theme.ImageBrowserTheme
 import com.gregkluska.imagebrowser.core.model.Image
+import com.gregkluska.imagebrowser.core.model.User
 
 @Composable
 fun SearchScreen(
     lazyListState: LazyListState = rememberLazyListState(),
     images: List<Image>,
-    onImageClick: (String) -> Unit,
+    onEvent: (SearchEvent) -> Unit,
 ) {
     val internetPermissionState = rememberPermissionState(Manifest.permission.INTERNET)
 
     if (internetPermissionState.status.isGranted) {
         LazyColumn(
             modifier = Modifier.padding(horizontal = 16.dp),
-            state = rememberLazyListState(),
+            state = lazyListState,
             content = {
                 this.items(
                     count = images.size,
@@ -41,12 +42,10 @@ fun SearchScreen(
                         val image = images[idx]
                         ImageContainer(
                             modifier = Modifier
-                                .padding(vertical = 8.dp)
-                                .clickable(
-                                    onClick = { onImageClick(image.id) }
-                                ),
+                                .padding(vertical = 8.dp),
                             url = image.url,
-                            alt = image.description
+                            alt = image.description,
+                            onClick = { onEvent(SearchEvent.OnClick(image.id)) }
                         ) {
                             Text("Hello World")
                         }
@@ -71,26 +70,26 @@ private fun SearchScreenPreview() {
         Image(
             id = "1",
             url = "https://images.unsplash.com/photo-1692318431228-8928bacd2d19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-            author = "Greg",
+            author = User("a", "User"),
             description = "Lorem Ipsum"
         ),
         Image(
             id = "2",
             url = "https://images.unsplash.com/photo-1692610492938-37a4eed63ac0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
-            author = "Greg A",
+            author = User("a", "User"),
             description = "Lorem Ipsum"
         ),
         Image(
             id = "3",
             url = "https://images.unsplash.com/photo-1692206130097-f66afa1cbc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
-            author = "Greg K",
+            author = User("a", "User"),
             description = "Lorem Ipsum"
         ),
     )
     ImageBrowserTheme {
         SearchScreen(
             images = previewList,
-            onImageClick = {}
+            onEvent = {}
         )
     }
 }

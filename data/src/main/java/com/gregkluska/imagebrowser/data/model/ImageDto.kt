@@ -16,7 +16,7 @@ fun ImageDto.toImage(): Image {
     return Image(
         id = id,
         url = this.urls.full,
-        author = this.user.username,
+        author = this.user.toUser(),
         description = "N/A"
     )
 }

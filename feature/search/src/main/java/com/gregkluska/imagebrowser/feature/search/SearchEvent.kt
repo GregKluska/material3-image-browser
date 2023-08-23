@@ -4,9 +4,9 @@ sealed interface SearchEvent {
 
     data class OnClick(
         val id: String
-    ): SearchEvent
+    ) : SearchEvent
 
     data class LoadImages(
         val query: String
-    ): SearchEvent
+    ) : SearchEvent
 }

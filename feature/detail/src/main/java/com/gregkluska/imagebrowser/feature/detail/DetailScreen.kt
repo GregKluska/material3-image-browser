@@ -7,12 +7,14 @@ import com.gregkluska.imagebrowser.core.model.Image
 
 @Composable
 fun DetailScreen(
-    image: Image?
+    image: Image?,
+    onEvent: (DetailEvent) -> Unit,
 ) {
+    println(image)
     ImageContainer(
         url = image?.url ?: "",
-        alt = image?.description ?: ""
+        alt = image?.description ?: "",
     ) {
-        Text("Hello world@@!")
+        Text("Author: ${image?.author?.name?:"Loading"}")
     }
 }

@@ -20,7 +20,8 @@ fun NavGraphBuilder.detailScreen() {
         val viewModel: DetailViewModel = hiltViewModel()
         val state = viewModel.state.value
         DetailScreen(
-            image = state.image
+            image = state.image,
+            onEvent = {}
         )
     }
 }

@@ -2,6 +2,7 @@ plugins {
     id "com.gregkluska.android.library"
     id "com.gregkluska.android.library.compose"
     id "com.gregkluska.hilt"
+    alias(libs.plugins.paparazzi)
 }
 
 android {
@@ -39,4 +40,9 @@ dependencies {
     implementation libs.accompanist.permissions
 
     implementation libs.material3
+
+    // Testing
+    testImplementation libs.junit
+    testImplementation libs.coil.test
+    testImplementation libs.coil.core
 }

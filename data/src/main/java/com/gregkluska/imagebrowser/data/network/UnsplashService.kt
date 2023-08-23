@@ -14,9 +14,9 @@ import kotlinx.serialization.json.Json
 
 interface UnsplashService {
 
-    suspend fun getPhotos(): List<ImageDto>
+    suspend fun getPhoto(): List<ImageDto>
 
-    suspend fun getPhotos(id: String): ImageDto
+    suspend fun getPhoto(id: String): ImageDto
 
     suspend fun getUsersPhoto(userId: String): List<ImageDto>
 

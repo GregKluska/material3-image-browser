@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.gregkluska.imagebrowser.feature.detail.navigation.detailScreen
+import com.gregkluska.imagebrowser.feature.detail.navigation.navigateToDetail
 import com.gregkluska.imagebrowser.feature.search.navigation.searchRoute
 import com.gregkluska.imagebrowser.feature.search.navigation.searchScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +20,10 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
 
             NavHost(navController = navController, startDestination = searchRoute) {
-                searchScreen()
+                searchScreen(
+                    onImageClick = navController::navigateToDetail
+                )
+                detailScreen()
             }
         }
     }

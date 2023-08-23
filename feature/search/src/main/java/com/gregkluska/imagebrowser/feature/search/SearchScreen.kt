@@ -3,6 +3,7 @@
 package com.gregkluska.imagebrowser.feature.search
 
 import android.Manifest
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -25,6 +26,7 @@ import com.gregkluska.imagebrowser.core.model.Image
 fun SearchScreen(
     lazyListState: LazyListState = rememberLazyListState(),
     images: List<Image>,
+    onImageClick: (String) -> Unit,
 ) {
     val internetPermissionState = rememberPermissionState(Manifest.permission.INTERNET)
 
@@ -38,7 +40,11 @@ fun SearchScreen(
                     itemContent = { idx ->
                         val image = images[idx]
                         ImageContainer(
-                            modifier = Modifier.padding(vertical = 8.dp),
+                            modifier = Modifier
+                                .padding(vertical = 8.dp)
+                                .clickable(
+                                    onClick = { onImageClick(image.id) }
+                                ),
                             url = image.url,
                             alt = image.description
                         ) {
@@ -83,7 +89,8 @@ private fun SearchScreenPreview() {
     )
     ImageBrowserTheme {
         SearchScreen(
-            images = previewList
+            images = previewList,
+            onImageClick = {}
         )
     }
 }

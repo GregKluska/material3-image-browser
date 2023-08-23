@@ -35,12 +35,12 @@ class SearchViewModel @Inject constructor(
                 // Not implemented
             }
             is SearchEvent.LoadImages -> {
-                getImages(event.query)
+                loadImages(event.query)
             }
         }
     }
 
-    private fun getImages(query: String) {
+    private fun loadImages(query: String) {
         viewModelScope.launch {
             val images = imageRepository.getImages()
 

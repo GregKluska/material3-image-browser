@@ -12,18 +12,15 @@ class UnsplashServiceImpl(
     private val httpClient: HttpClient,
 ) : UnsplashService {
 
-    override suspend fun getPhotos(): List<ImageDto> {
-        val test = httpClient.get(EndPoints.PHOTO_LIST)
-        println(test.request.headers)
-
-        println("body:")
-        println(test.bodyAsText())
-
-        return test.body()
+    override suspend fun getPhoto(): List<ImageDto> {
+        return httpClient.get(EndPoints.PHOTO_LIST).body()
     }
 
-    override suspend fun getPhotos(id: String): ImageDto {
-        TODO("Not yet implemented")
+    override suspend fun getPhoto(id: String): ImageDto {
+        val res = httpClient.get("${EndPoints.PHOTO}/$id")
+        println(id)
+        println(res.bodyAsText())
+        return res.body()
     }
 
     override suspend fun getUsersPhoto(userId: String): List<ImageDto> {

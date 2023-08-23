@@ -32,10 +32,11 @@ fun DetailScreen(
         ImageContainer(
             modifier = Modifier.padding(16.dp),
             url = image?.url ?: "",
-            alt = image?.description ?: "",
-        ) {
-            Text("Author: ${image?.author?.name ?: "Loading"}")
-        }
+            description = image?.description,
+            author = image?.author?.name ?: "",
+            date = "",
+            tags = image?.tags?:listOf()
+        )
     }
 
 }

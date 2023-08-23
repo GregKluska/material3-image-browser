@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ImageDto(
     val id: String,
-    val likes: Int,
-    val tag: List<TagDto> = listOf(),
+    val description: String?,
+    val tags: List<TagDto> = listOf(),
     val urls: UrlsDto,
     val user: UserDto
 )
@@ -16,7 +16,8 @@ fun ImageDto.toImage(): Image {
     return Image(
         id = id,
         url = this.urls.full,
+        tags = this.tags.map { it.title },
         author = this.user.toUser(),
-        description = "N/A"
+        description = description?:""
     )
 }

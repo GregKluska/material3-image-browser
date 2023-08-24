@@ -25,6 +25,8 @@ allows to keep the code clean and easier to test.
 I also added Gradle Convention Plugins (gradle/build-logic) to make it easier to manage gradle build
 files. The configuration cache and build cache are enabled
 
+![Dependency graph](https://github.com/GregKluska/material3-image-browser/blob/main/art/dependency%20graph.png?raw=true)
+
 - :app - The main application module
 - :feature:search - The search view module (android library)
 - :feature:detail - The detail view module (android library)

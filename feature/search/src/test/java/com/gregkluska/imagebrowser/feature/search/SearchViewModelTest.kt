@@ -39,8 +39,8 @@ class SearchViewModelTest {
     }
 
     private val mockImageRepository: ImageRepository = mock {
-        onBlocking { this.getImages() } doAnswer { getImagesResponse }
-        onBlocking { this.getUsersImages(any()) } doAnswer { getImagesResponse }
+        onBlocking { getImages() } doAnswer { getImagesResponse }
+        onBlocking { getUsersImages(any()) } doAnswer { getImagesResponse }
     }
 
     @Test
@@ -48,7 +48,7 @@ class SearchViewModelTest {
         savedUsername = null
         Dispatchers.setMain(testDispatcher)
         sut = SearchViewModel(mockSavedStateHandle, mockImageRepository)
-        this.runCurrent()
+        runCurrent()
         verify(mockImageRepository, times(1)).getImages()
     }
 
@@ -58,7 +58,7 @@ class SearchViewModelTest {
             savedUsername = "Test"
             Dispatchers.setMain(testDispatcher)
             sut = SearchViewModel(mockSavedStateHandle, mockImageRepository)
-            this.runCurrent()
+            runCurrent()
             verify(mockImageRepository, times(1)).getUsersImages("Test")
         }
 
@@ -69,7 +69,7 @@ class SearchViewModelTest {
         Dispatchers.setMain(testDispatcher)
         sut = SearchViewModel(mockSavedStateHandle, mockImageRepository)
         assertEquals(SearchState(listOf()), sut.state.value)
-        this.runCurrent()
+        runCurrent()
         verify(mockImageRepository, times(1)).getImages()
         runCurrent()
         assertEquals(SearchState(listOf(EmptyImage)), sut.state.value)

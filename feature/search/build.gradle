@@ -43,6 +43,8 @@ dependencies {
 
     // Testing
     testImplementation libs.junit
+    testImplementation libs.mockito.kotlin
     testImplementation libs.coil.test
     testImplementation libs.coil.core
+    testImplementation libs.kotlin.coroutines.test
 }

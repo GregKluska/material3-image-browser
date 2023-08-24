@@ -47,7 +47,6 @@ class SearchViewModel @Inject constructor(
     }
 
     fun handle(event: SearchEvent) {
-        Log.d(TAG, "handle: called with $event")
         when (event) {
             is SearchEvent.OnClick -> {
                 openImage(event.id)

@@ -1,6 +1,5 @@
 package com.gregkluska.imagebrowser.feature.search
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -39,7 +38,7 @@ class SearchViewModel @Inject constructor(
         get() = viewModelEffect
 
     init {
-        if(byUsername != null) {
+        if (byUsername != null) {
             handle(SearchEvent.LoadUsersImages(byUsername))
         } else {
             handle(SearchEvent.LoadImages)
@@ -83,9 +82,5 @@ class SearchViewModel @Inject constructor(
 
             viewModelState.value = viewModelState.value.copy(images = images)
         }
-    }
-
-    companion object {
-        private const val TAG = "SearchViewModel"
     }
 }

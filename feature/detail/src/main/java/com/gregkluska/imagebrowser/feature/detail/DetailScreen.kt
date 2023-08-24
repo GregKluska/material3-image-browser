@@ -1,19 +1,11 @@
 package com.gregkluska.imagebrowser.feature.detail
 
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.rememberScrollableState
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.gregkluska.imagebrowser.common.ui.ImageContainer
 import com.gregkluska.imagebrowser.core.model.Image
@@ -34,7 +26,7 @@ fun DetailScreen(
             url = image?.url ?: "",
             description = image?.description,
             author = image?.author?.name ?: "",
-            tags = image?.tags?:listOf(),
+            tags = image?.tags ?: listOf(),
             onUserClick = { onEvent(DetailEvent.OnUserClick) }
         )
     }

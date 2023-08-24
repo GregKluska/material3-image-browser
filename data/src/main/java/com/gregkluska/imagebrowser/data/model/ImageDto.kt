@@ -18,6 +18,6 @@ fun ImageDto.toImage(): Image {
         url = this.urls.full,
         tags = this.tags.map { it.title },
         author = this.user.toUser(),
-        description = description?:""
+        description = description ?: ""
     )
 }

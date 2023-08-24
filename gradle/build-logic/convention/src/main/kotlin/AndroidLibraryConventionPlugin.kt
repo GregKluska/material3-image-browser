@@ -1,4 +1,3 @@
-import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
 import com.gregkluska.gradle.configureAndroidCommon
 import com.gregkluska.gradle.libs

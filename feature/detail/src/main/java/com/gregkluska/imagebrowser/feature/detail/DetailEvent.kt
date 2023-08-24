@@ -4,7 +4,7 @@ sealed interface DetailEvent {
 
     data class LoadImage(
         val imageId: String
-    ): DetailEvent
+    ) : DetailEvent
 
-    object OnUserClick: DetailEvent
+    object OnUserClick : DetailEvent
 }

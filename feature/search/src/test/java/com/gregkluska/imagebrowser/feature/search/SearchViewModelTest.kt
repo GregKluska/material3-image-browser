@@ -12,7 +12,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -81,14 +80,14 @@ class SearchViewModelTest {
         runTest(testDispatcher) {
             Dispatchers.setMain(testDispatcher)
             sut = SearchViewModel(mockSavedStateHandle, mockImageRepository)
-            advanceUntilIdle()
+            runCurrent()
             val effects = mutableListOf<SearchEffect>()
             val collectEffectsJob = sut.effect
                 .onEach { effects.add(it) }
                 .launchIn(this)
 
             sut.handle(SearchEvent.OnClick("test_id"))
-            advanceUntilIdle()
+            runCurrent()
             assertEquals(listOf(SearchEffect.NavigateToImage("test_id")), effects)
 
             collectEffectsJob.cancel()
@@ -99,10 +98,10 @@ class SearchViewModelTest {
         runTest(testDispatcher) {
             Dispatchers.setMain(testDispatcher)
             sut = SearchViewModel(mockSavedStateHandle, mockImageRepository)
-            advanceUntilIdle()
+            runCurrent()
 
             sut.handle(SearchEvent.LoadImages)
-            advanceUntilIdle()
+            runCurrent()
 
             // 1st. Init
             // 2nd. Handle
@@ -114,10 +113,10 @@ class SearchViewModelTest {
         runTest(testDispatcher) {
             Dispatchers.setMain(testDispatcher)
             sut = SearchViewModel(mockSavedStateHandle, mockImageRepository)
-            advanceUntilIdle()
+            runCurrent()
 
             sut.handle(SearchEvent.LoadUsersImages("testUser"))
-            advanceUntilIdle()
+            runCurrent()
 
             verify(mockImageRepository, times(1)).getUsersImages("testUser")
         }

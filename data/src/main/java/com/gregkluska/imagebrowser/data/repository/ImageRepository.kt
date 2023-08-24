@@ -12,7 +12,7 @@ constructor(
 ) {
 
     suspend fun getImages(): List<Image> {
-        return unsplashService.getPhoto().map { it.toImage() }
+        return unsplashService.getPhotos().map { it.toImage() }
     }
 
     suspend fun getUsersImages(username: String): List<Image> {

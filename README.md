@@ -23,8 +23,8 @@ I also added Gradle Convention Plugins (gradle/build-logic) to make it easier to
 - :feature:search - The search view module (android library)
 - :feature:detail - The detail view module (android library)
 - :common-ui - The module to share ui elements (android library)
-- :data - datasource and repository
-- :core - core models
+- :data - datasource and repository (jvm library)
+- :core - core models (jvm library)
 
 The app follows the clean architecture, but not everything was implemented because of the deadline:
 

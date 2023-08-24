@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalPermissionsApi::class)
+@file:OptIn(ExperimentalPermissionsApi::class, ExperimentalPermissionsApi::class)
 
 package com.gregkluska.imagebrowser.feature.search
 
@@ -41,14 +41,14 @@ fun SearchScreen(
                     itemContent = { idx ->
                         val image = images[idx]
                         ImageContainer(
-                            modifier = Modifier
-                                .padding(vertical = 8.dp),
+                            modifier = Modifier.padding(vertical = 8.dp),
                             url = image.url,
-                            alt = image.description,
+                            author = image.author.name,
+                            description = "",
+                            tags = listOf(),
+                            onUserClick = {},
                             onClick = { onEvent(SearchEvent.OnClick(image.id)) }
-                        ) {
-                            Text("${image.author.name}: ${image.description}")
-                        }
+                        )
                     }
                 )
             }

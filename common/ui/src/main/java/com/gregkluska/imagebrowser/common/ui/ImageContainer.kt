@@ -35,11 +35,11 @@ import coil.compose.AsyncImage
 fun ImageContainer(
     modifier: Modifier,
     url: String,
-    date: String,
     author: String,
     description: String?,
     tags: List<String>,
     onUserClick: () -> Unit,
+    onClick: (() -> Unit)? = null,
 ) {
     val content = AnnotatedString.Builder().apply {
         withStyle(
@@ -56,6 +56,7 @@ fun ImageContainer(
         modifier = modifier,
         url = url,
         alt = description ?: "",
+        onClick = onClick
     ) {
         Row(
             modifier = Modifier

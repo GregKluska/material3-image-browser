@@ -43,6 +43,7 @@ The app follows the clean architecture, but not everything was implemented becau
 4) I didn't write AndroidTests because of the deadline. However the ui interactions are passed down
    to the viewmodel and it's all unit tested.
 5) I didn't add paging libary to see all images to the view is limited to 10 images.
+6) Error handling in ktor
 
 ## Dependencies
 
